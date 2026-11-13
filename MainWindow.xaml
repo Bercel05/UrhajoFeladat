@@ -1,0 +1,40 @@
+﻿<Window x:Class="UrhajoFeladat.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UrhajoFeladat"
+        mc:Ignorable="d"
+        Title="Űrhajók" Height="500" Width="950">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0" Background="#1E2B3A" Padding="10" Margin="0,0,10,0">
+            <StackPanel>
+                <TextBlock Text="Űrhajó műveletek" Foreground="White" FontWeight="Bold" FontSize="16" Margin="0,0,0,10" HorizontalAlignment="Center"/>
+                <Button Content="Adatok betöltése" Height="26" Margin="0,0,0,5" Click="BtnBetoltes_Click"/>
+                <Button Content="Hány űrhajó van?" Height="26" Margin="0,0,0,5" Click="BtnHanyUrhajo_Click"/>
+                <Button Content="Melyiknek a legnagyobb a hatótávja?" Height="26" Margin="0,0,0,5" Click="BtnLegnagyobbHatotav_Click"/>
+                <Button Content="Kik voltak sikeres küldetésen?" Height="26" Margin="0,0,0,5" Click="BtnSikeresKuvetes_Click"/>
+                <Button Content="Átlagos legénységszám" Height="26" Margin="0,0,0,5" Click="BtnAtlagLegenyseg_Click"/>
+                <Button Content="Gyártók szerinti csoportosítás" Height="26" Margin="0,0,0,5" Click="BtnGyartokCsoportosit_Click"/>
+                <Button Content="Keresés név alapján" Height="26" Margin="0,0,0,10" Click="BtnKeresesNev_Click"/>
+            </StackPanel>
+        </Border>
+
+        <DataGrid x:Name="dgUrhajok" Grid.Column="1" AutoGenerateColumns="False" CanUserAddRows="False" SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nev" Binding="{Binding Nev}" Width="*" />
+                <DataGridTextColumn Header="Legenyseg" Binding="{Binding Legenyseg}" Width="80" />
+                <DataGridTextColumn Header="MaxHatotav" Binding="{Binding MaxHatotav}" Width="90" />
+                <DataGridTextColumn Header="Uzemanyagszint" Binding="{Binding Uzemanyagszint}" Width="100" />
+                <DataGridTextColumn Header="Gyarto" Binding="{Binding Gyarto}" Width="90" />
+                <DataGridTextColumn Header="KuldetesStatusz" Binding="{Binding KuldetesStatusz}" Width="110" />
+                <DataGridTextColumn Header="InditasEve" Binding="{Binding InditasEve}" Width="80" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
